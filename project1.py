@@ -1,7 +1,8 @@
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
-image = cv2.imread('image test 1.png')
+image = cv2.imread('image test 1.png') # image 1
+# image = cv2.imread('image test 2.png') # image 2
 
 if image is None:
     print("Error: Image not loaded.")
@@ -35,5 +36,5 @@ image2ThirdFull=[381,269,149,186]
 image2ThirdUpper=[381,269,149,186//2]
 
 
-#histogram(image1FirstFull)
+histogram(image1FirstFull)
 #histogram(image1FirstUpper)
