@@ -25,7 +25,7 @@ def load_images_from_folder(folder):
             images[os.path.splitext(filename)[0]] = img
     return images
 
-folder_path = 'C:/Users/user/Desktop/csi-4533/subsequence_cam1'
+folder_path = './subsequence_cam1'
 
 # Load images from the folder
 image_sequence = load_images_from_folder(folder_path)
@@ -85,7 +85,7 @@ for i, (filename, coordinates) in enumerate(histogram_coordinates):
         # skip if 
         continue
 
-    image_cam= cv2.imread('C:/Users/user/Desktop/csi-4533/subsequence_cam1/'+filename+'.png')
+    image_cam= cv2.imread('./subsequence_cam1/'+filename+'.png')
 
     intersections = [
         #compare test images with cam image full
@@ -135,3 +135,30 @@ top_100_people = sorted_person_max_value[:100]
 print("Top 100 most similar people:")
 for person in top_100_people:
     print("Filename:", person[1], "Histogram Name:", person[2], "Coordinates:", person[4])
+    
+def show_images_one_by_one(top_people, folder_path):
+    window_name = "Image Viewer"
+    cv2.namedWindow(window_name, cv2.WINDOW_NORMAL)
+    
+    for person in top_people:
+        filename, hist_name, coordinates = person[1], person[2], person[4]
+        image_path = os.path.join(folder_path, filename + '.png')
+        image = cv2.imread(image_path)
+
+        if image is not None:
+            x, y, w, h = coordinates
+            cv2.rectangle(image, (x, y), (x+w, y+h), (0, 255, 0), 2)
+
+            # Add histogram name as text on the image
+            font = cv2.FONT_HERSHEY_SIMPLEX
+            cv2.putText(image, hist_name, (10, 30), font, 1, (255, 255, 255), 2, cv2.LINE_AA)
+
+            cv2.imshow(window_name, image)
+            cv2.waitKey(0)
+        else:
+            print(f"Failed to load image: {filename}")
+
+    cv2.destroyAllWindows()
+
+show_images_one_by_one(top_100_people, folder_path)
+
