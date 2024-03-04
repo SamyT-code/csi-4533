@@ -45,11 +45,9 @@ image2SecondUpper = [330, 130, 55, 259//2]
 image2ThirdFull = [381, 269, 149, 186]
 image2ThirdUpper = [381, 269, 149, 186//2]
 
-
 image1 = cv2.imread('image test 1.png')
 
 image2 = cv2.imread('image test 2.png')
-
 
 histogram_coordinates = []
 histogram_labels=["image1FirstFull", "image1FirstUpper",
@@ -77,14 +75,9 @@ with open('labels.txt', 'r') as file:
         coordinates = list(map(int, values[-4:]))
         histogram_coordinates.append((filename, coordinates))
 
-
 def compare(histogram_names):
     person_max_value = []
     for j in range (len(histogram_names)):
-        
-        
-        
-        
 
         # Compare histograms and find the maximum intersection for each person
         for i, (filename, coordinates) in enumerate(histogram_coordinates):
@@ -104,7 +97,6 @@ def compare(histogram_names):
             ]
             #find max
             max_intersection = max(intersections)
-
            
             # Store person index, filename, and coordinates of the max intersection value
             person_max_value.append((i, filename, max_intersection, coordinates))
@@ -118,9 +110,6 @@ def compare(histogram_names):
     for person in top_100_people:
         print("Filename:", person[1], "Coordinates:", person[3])
     return top_100_people
-
-
-   
     
 def show_images_one_by_one(top_people, folder_path):
     window_name = "Image Viewer"
@@ -141,14 +130,18 @@ def show_images_one_by_one(top_people, folder_path):
             print(f"Failed to load image: {filename}")
 
     cv2.destroyAllWindows()
+    
 #first person
-# top_100_people=compare(histogram_names_first)
-# show_images_one_by_one(top_100_people, folder_path)
+print("First Person - Femme en veste blueue:")
+top_100_people=compare(histogram_names_first)
+show_images_one_by_one(top_100_people, folder_path)
     
 #second person
-top_100_people=compare(histogram_names_second)
-show_images_one_by_one(top_100_people, folder_path)
+# print("Second Person - Femme en veste marron:")
+# top_100_people=compare(histogram_names_second)
+# show_images_one_by_one(top_100_people, folder_path)
 
 #third person
+# print("Third Person - Homme en veste blueue:")
 # top_100_people=compare(histogram_names_third)
 # show_images_one_by_one(top_100_people, folder_path)
