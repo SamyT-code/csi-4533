@@ -56,14 +56,18 @@ histogram_labels=["image1FirstFull", "image1FirstUpper",
     "image2SecondFull", "image2SecondUpper",
     "image2ThirdFull", "image2ThirdUpper"]
 
-histogram_names_first = [
-    [(image1FirstFull,image1),(image1FirstUpper,image1)],
-    [(image2FirstFull,image2), (image2FirstUpper,image2)]
+histogram_names_first_first_image = [
+    [(image1FirstFull,image1),(image1FirstUpper,image1)]
+  
 ]
-histogram_names_second = [
-    [(image1SecondFull,image1), (image1SecondUpper,image1)],
-   [ (image2SecondFull,image2), (image2SecondUpper,image2)]
+histogram_names_second_first_image = [
+    [(image1SecondFull,image1), (image1SecondUpper,image1)]
 ]
+histogram_names_first_second_image= [[
+    (image2FirstFull,image2), (image2FirstUpper,image2)]]
+
+histogram_names_second_second_image=[
+     [ (image2SecondFull,image2), (image2SecondUpper,image2)]]
 histogram_names_third = [
     [(image2ThirdFull,image2), (image2ThirdUpper,image2)]]
 
@@ -131,19 +135,33 @@ def show_images_one_by_one(top_people, folder_path):
 
     cv2.destroyAllWindows()
     
-#first person
-print("First Person - Femme en veste blueue:")
-top_100_people=compare(histogram_names_first)
-show_images_one_by_one(top_100_people, folder_path)
-print("First Person - Femme en veste blueue")
-print("Result - Manually Calculated: 84% Correspondance")
+#first person 1st image
+# print("First Person 1st image  - Femme en veste blueue:")
+# top_100_people=compare(histogram_names_first_first_image)
+# show_images_one_by_one(top_100_people, folder_path)
+# print("First Person - Femme en veste blueue")
+# print("Result - Manually Calculated: 84% Correspondance")
+
+#second person 1st image
+# print("First Person 1st image - Femme en veste marron:")
+# top_100_people=compare(histogram_names_second_first_image)
+# show_images_one_by_one(top_100_people, folder_path)
+# print("First Person - Femme en veste marron")
+# print("Result - Manually Calculated: 88% Correspondance")
     
-#second person
-# print("Second Person - Femme en veste marron:")
-# top_100_people=compare(histogram_names_second)
+#first person 2nd image
+print("First Person 2nd image - Femme en veste bleue:")
+top_100_people=compare(histogram_names_first_second_image)
+show_images_one_by_one(top_100_people, folder_path)
+print("Second Person - Femme en veste marron:")
+print("Result - Manually Calculated: 89% Correspondance")
+    
+#second person 2nd image
+# print("Second Person 2nd image - Femme en veste marron:")
+# top_100_people=compare(histogram_names_second_second_image)
 # show_images_one_by_one(top_100_people, folder_path)
 # print("Second Person - Femme en veste marron:")
-# print("Result - Manually Calculated: 90% Correspondance")
+# print("Result - Manually Calculated: 94% Correspondance")
 
 #third person
 # print("Third Person - Homme en veste blueue:")
