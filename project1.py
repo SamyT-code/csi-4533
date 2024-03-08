@@ -163,7 +163,7 @@ print("Result - Manually Calculated: 89% Correspondance")
 # print("Second Person - Femme en veste marron:")
 # print("Result - Manually Calculated: 94% Correspondance")
 
-#third person
+#third person 2nd image
 # print("Third Person - Homme en veste blueue:")
 # top_100_people=compare(histogram_names_third)
 # show_images_one_by_one(top_100_people, folder_path)
