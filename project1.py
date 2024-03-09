@@ -143,10 +143,10 @@ def show_images_one_by_one(top_people, folder_path):
 # print("Result - Manually Calculated: 84% Correspondance")
 
 #second person 1st image
-# print("First Person 1st image - Femme en veste marron:")
+# print("Second Person 1st image - Femme en veste marron:")
 # top_100_people=compare(histogram_names_second_first_image)
 # show_images_one_by_one(top_100_people, folder_path)
-# print("First Person - Femme en veste marron")
+# print("Second Person - Femme en veste marron")
 # print("Result - Manually Calculated: 88% Correspondance")
     
 #first person 2nd image
